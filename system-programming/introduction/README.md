@@ -140,10 +140,7 @@ preventing errant code from crashing the entire operating system.
 
 ## References
 
-* [YouTube: Linux System Programming with C](https://youtube.com/playlist?list=PLysdvSvCcUhbrU3HhGhfQVbhjnN9GXCq4&si=JysJ9QaVwpA0U-BK)
-
-* [YouTube (Chris Brown): Kernel Space and User Space](https://youtu.be/p-vqh0KBtHM?si=6kpqplIUQ2-cJFXV)
-
-* [YouTube (Chris Brown): System Calls and Error Handling](https://youtu.be/No1vdnYPDjw?si=LlMK5PlCvNReb8PU)
-
-* [YouTube (Chris Brown): Systems Programming Example in C and Python](https://youtu.be/VHRvR7fiOP8?si=yYMCmanTwnvVMiSH)
+* [YouTube (Chris Brown): Linux System Programming with C](https://youtube.com/playlist?list=PLysdvSvCcUhbrU3HhGhfQVbhjnN9GXCq4&si=Mk3o-qZxlVJln5zb)
+    - [Kernel Space and User Space](https://youtu.be/p-vqh0KBtHM?si=6kpqplIUQ2-cJFXV)
+    - [System Calls and Error Handling](https://youtu.be/No1vdnYPDjw?si=LlMK5PlCvNReb8PU)
+    - [Systems Programming Example in C and Python](https://youtu.be/VHRvR7fiOP8?si=yYMCmanTwnvVMiSH)
