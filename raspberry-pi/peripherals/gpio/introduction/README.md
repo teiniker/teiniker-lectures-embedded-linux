@@ -3,7 +3,7 @@
 The GPIO port connector is a 40-pin expansion header, arranged in a 2 x 20 strip.
 The I/O ports are numbered as `GPIO nn`.
 
-![](../../boards/gpio-header/figures/raspi-pinout.png)
+![](figures/RaspberryPi5-GPIO-Port.png)
 
 The GPIO provides 26 general-purpose bidirectional I/O pins.
 
