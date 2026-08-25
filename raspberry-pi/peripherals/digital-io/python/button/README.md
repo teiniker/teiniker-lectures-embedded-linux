@@ -89,6 +89,12 @@ more responsive and far less CPU-intensive than polling, since no
 presses can be missed and the CPU stays idle between events.
 
 
+## Generic Digital Inputs
+
+If we are using other digital input instead of a pushbutton, we can use 
+the `DigitalInputDevice` class.
+
+
 ## References
 
 * [gpiozero: Button](https://gpiozero.readthedocs.io/en/stable/api_input.html#button)

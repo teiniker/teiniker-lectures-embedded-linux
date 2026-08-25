@@ -1,57 +1,88 @@
-# Inspecting Hardware in Linux 
+# General Purpose Input Output (GPIO) Port
 
-## List USB devices
+The GPIO port connector is a 40-pin expansion header, arranged in a 2 x 20 strip.
+The I/O ports are numbered as `GPIO nn`.
 
-**lsusb**  is  a  utility for displaying information about USB buses 
-in the system and the devices connected to them. It uses udev's hardware 
-database to associate a full human-readable name to the vendor ID and the 
-product ID.
+![](figures/RaspberryPi5-GPIO-Port.png)
 
-_Example:_ List USB devices (Raspberry Pi)
-```
-$ lsusb
-Bus 001 Device 004: ID 0c45:0520 Microdia MaxTrack Wireless Mouse
-Bus 001 Device 005: ID 0424:7800 Microchip Technology, Inc. (formerly SMSC) 
-Bus 001 Device 003: ID 0424:2514 Microchip Technology, Inc. (formerly SMSC) USB 2.0 Hub
-Bus 001 Device 002: ID 0424:2514 Microchip Technology, Inc. (formerly SMSC) USB 2.0 Hub
-Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
-```
+The GPIO provides 26 general-purpose bidirectional I/O pins.
 
-_Example:_ List USB devices in a tree format
-```
-$ lsusb -t
-/:  Bus 01.Port 1: Dev 1, Class=root_hub, Driver=dwc_otg/1p, 480M
-    |__ Port 1: Dev 2, If 0, Class=Hub, Driver=hub/4p, 480M
-        |__ Port 1: Dev 3, If 0, Class=Hub, Driver=hub/3p, 480M
-            |__ Port 1: Dev 5, If 0, Class=Vendor Specific Class, Driver=lan78xx, 480M
-        |__ Port 2: Dev 4, If 0, Class=Human Interface Device, Driver=usbhid, 1.5M
-        |__ Port 2: Dev 4, If 1, Class=Human Interface Device, Driver=usbhid, 1.5M
-```
+An output pin can supply up to **16mA of current**. The total current drawn 
+from all output pins should not exceed the 50mA limit.
 
-## List PCI Devices
-**lspci** is a utility for displaying information about PCI buses in the system 
-and devices connected to them.
 
-_Example:_ List PCI devices (Debian12 VM)
-```
-$ lspci
-00:00.0 Host bridge: Intel Corporation 440FX - 82441FX PMC [Natoma] (rev 02)
-00:01.0 ISA bridge: Intel Corporation 82371SB PIIX3 ISA [Natoma/Triton II]
-00:01.1 IDE interface: Intel Corporation 82371AB/EB/MB PIIX4 IDE (rev 01)
-00:02.0 VGA compatible controller: VMware SVGA II Adapter
-00:03.0 Ethernet controller: Intel Corporation 82540EM Gigabit Ethernet Controller (rev 02)
-00:04.0 System peripheral: InnoTek Systemberatung GmbH VirtualBox Guest Service
-00:05.0 Multimedia audio controller: Intel Corporation 82801AA AC'97 Audio Controller (rev 01)
-00:07.0 Bridge: Intel Corporation 82371AB/EB/MB PIIX4 ACPI (rev 08)
-00:0c.0 USB controller: Intel Corporation 7 Series/C210 Series Chipset Family USB xHCI Host Controller
-00:0d.0 SATA controller: Intel Corporation 82801HM/HEM (ICH8M/ICH8M-E) SATA Controller [AHCI mode] (rev 02)
-```
+## Power Pins
+
+The Raspberry Pi comes with 3.2V and 5V pins: 
+
+* **3.3V**: Pins number 1 and 17 
+* **5V**: Pins 2 and 4
+
+* **GND**: Pins number: 6, 9, 14, 20, 25, 30, 34, and 39
+
+
+## PWM Pins
+
+PWM stands for **Pulse Width Modulation** and it is used to control motors, 
+define varying levels of LED brightness, define the color of RGB LEDs, and 
+much more.
+
+The Raspberry Pi has 4 **hardware PWM pins**: **GPIO 12**, **GPIO 13**, 
+**GPIO 18**, **GPIO 19**.
+
+We can have **software PWM on all pins**.
+
+
+## I2C Pins
+
+I2C means **Inter-Integrated Circuit**, and it is a synchronous, 
+multi-master, multi-slave communication protocol. It allows us 
+to establish communication with other microcontroller devices, 
+sensors, or displays, for example. 
+We can connect multiple I2C devices to the same pins as long 
+they have a unique I2C address.
+
+The Raspberry Pi I2C pins are:
+
+* **SDA**: GPIO 2
+* **SCL**: GPIO 3
+
+If we want to use I2C, you need to enable the I2C communication 
+interface first.
+
+## I2C EEPROM
+
+Pins 27 and 28 (GPIO 0 and GPIO 1) are reserved for connecting 
+a HAT ID EEPROM. Do not use these pins unless you’re using an 
+I2C ID EEPROM. Leave unconnected if you’re not using an I2C EEPROM
+
+
+## SPI Pins
+
+SPI stands for **Serial Peripheral Interface**, and it is a synchronous serial 
+data protocol used by microcontrollers to communicate with one or more 
+peripherals. This communication protocol allows us to connect multiple 
+peripherals to the same bus interface, as long as each is connected to 
+a different chip select pin.
+
+These are the Raspberry Pi SPI pins:
+
+* **MOSI**: GPIO 10
+* **MISO**: GPIO 9
+* **CLOCK**: GPIO 11
+
+
+## Serial (UART) Pins
+
+The UART pins can be used for Serial communication. The Raspberry Pi Serial 
+(UART) pins are:
+
+* **TX**: GPIO 14
+* **RX**: GPIO 15
+
 
 
 
 ## References
-*  [YouTube (Linux Crash Course):Easy Terminal Commands for Inspecting Hardware](https://youtu.be/oGyJr-iUwt8?si=Wq5ivxnfVIo9STuf)
 
-* [Definitive Guide to Attaching Sensors to the Raspberry Pi](https://youtu.be/gnE4v-PcYKQ?si=DU5bvBCnMWnaPuVX)
-
-*Egon Teiniker, 2024-2025, GPL v3.0*
+* [Raspberry Pi Pinout Guide: How to use the Raspberry Pi GPIOs?](https://randomnerdtutorials.com/raspberry-pi-pinout-gpios/)
