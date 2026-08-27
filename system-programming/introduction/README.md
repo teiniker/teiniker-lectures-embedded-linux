@@ -144,3 +144,6 @@ preventing errant code from crashing the entire operating system.
     - [Kernel Space and User Space](https://youtu.be/p-vqh0KBtHM?si=6kpqplIUQ2-cJFXV)
     - [System Calls and Error Handling](https://youtu.be/No1vdnYPDjw?si=LlMK5PlCvNReb8PU)
     - [Systems Programming Example in C and Python](https://youtu.be/VHRvR7fiOP8?si=yYMCmanTwnvVMiSH)
+
+* [YouTube (Brian Will): Unix system calls (1/2)](https://youtu.be/xHu7qI1gDPA?si=PpqFVFRK7RlNnBz2)
+* [YouTube (Brian Will): Unix system calls (2/2)](https://youtu.be/2DrjQBL5FMU?si=IqChNcv1gZj_8cPd)
