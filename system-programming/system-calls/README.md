@@ -10,6 +10,8 @@ runs unprivileged and has no direct access to hardware or to another
 process' memory, so anything that touches a shared or protected resource
 has to go through the kernel.
 
+![](figures/OS-SystemCalls.png)
+
 * **Mechanism**: Invoking a system call is not a normal function call. The
   process places the syscall number and its arguments into CPU registers
   and executes a special trapping instruction (`syscall` on x86-64, `svc`
