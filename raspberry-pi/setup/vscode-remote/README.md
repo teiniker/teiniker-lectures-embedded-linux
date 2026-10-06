@@ -36,4 +36,4 @@ if the folder were on your own machine.
 * [YouTube (Visual Studio Code): Getting Started with Remote Development](https://youtu.be/QA9jlp-o5vQ?si=wQbXyXuzBiXIDxxL)
 * [VS Code Remote Development](https://code.visualstudio.com/docs/remote/remote-overview)
 
-*Egon Teiniker, 2025, GPL v3.0*
+*Egon Teiniker, 2025-2026, GPL v3.0*

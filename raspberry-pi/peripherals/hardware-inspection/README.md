@@ -54,4 +54,4 @@ $ lspci
 
 * [Definitive Guide to Attaching Sensors to the Raspberry Pi](https://youtu.be/gnE4v-PcYKQ?si=DU5bvBCnMWnaPuVX)
 
-*Egon Teiniker, 2024-2025, GPL v3.0*
+*Egon Teiniker, 2025-2026, GPL v3.0*

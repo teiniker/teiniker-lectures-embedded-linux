@@ -1,4 +1,4 @@
-# Raspberry Pi Setup 
+# Raspberry Pi OS 
 
 ## Raspberry Pi Imager
 
@@ -208,4 +208,4 @@ $ sudo apt install xpdf
 ```
 
 
-*Egon Teiniker, 2024-2025, GPL v3.0*
+*Egon Teiniker, 2025-2026, GPL v3.0*

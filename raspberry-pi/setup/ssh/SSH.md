@@ -50,4 +50,4 @@ $ ssh student@xxx.xxx.xxx.xxx
 * [Raspberry Pi: access a remote terminal with SSH](https://www.raspberrypi.com/documentation/computers/remote-access.html#ssh)
 * [Linux man page: passwd](https://linux.die.net/man/1/passwd)	
 
-*Nicoletta Kähling, 2025, GPL v3.0*
+*Nicoletta Kähling, 2025-2026, GPL v3.0*
