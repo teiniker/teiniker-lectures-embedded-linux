@@ -55,3 +55,4 @@ All newer models are 64-bit capable, while the older models are 32-bit only:
     - Raspberry Pi 2 (v1.1 and earlier) – ARMv7
     - Raspberry Pi Zero (original, not Zero 2 W)
 
+*Egon Teiniker, 2025-2026, GPL v3.0* 
