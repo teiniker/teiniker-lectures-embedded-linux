@@ -109,3 +109,5 @@ the kernel boundary, independent of what its source code claims to do.
 
 * [YouTube (Brian Will): Unix system calls (1/2)](https://youtu.be/xHu7qI1gDPA?si=PpqFVFRK7RlNnBz2)
 * [YouTube (Brian Will): Unix system calls (2/2)](https://youtu.be/2DrjQBL5FMU?si=IqChNcv1gZj_8cPd)
+
+*Egon Teiniker, 2025-2026, GPL v3.0*  

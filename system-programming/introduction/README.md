@@ -145,3 +145,4 @@ preventing errant code from crashing the entire operating system.
     - [System Calls and Error Handling](https://youtu.be/No1vdnYPDjw?si=LlMK5PlCvNReb8PU)
     - [Systems Programming Example in C and Python](https://youtu.be/VHRvR7fiOP8?si=yYMCmanTwnvVMiSH)
 
+*Egon Teiniker, 2025-2026, GPL v3.0*  

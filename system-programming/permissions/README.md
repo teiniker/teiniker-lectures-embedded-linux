@@ -10,3 +10,4 @@
     - [Understanding Linux File Permissions and Modes](https://youtu.be/9HJ8F4z1fNQ?si=ndoQQguFJIEXrXsq)
     - [Understanding various priviledges on Linux Files](https://youtu.be/fIE0zHMBCvA?si=exmJVsiIxolTRz6J)
     
+*Egon Teiniker, 2025-2026, GPL v3.0*  

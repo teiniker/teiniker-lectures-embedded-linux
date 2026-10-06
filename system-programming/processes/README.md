@@ -12,3 +12,5 @@
     - [Creating PIPES in Linux System](https://youtu.be/sNLAHwxzPZw?si=xHoq6_vUfQ407-9g)
     - [Programming Linux Pipes and Shell](https://youtu.be/vqmwpFJxGo8?si=HZ2nHwmfehsU5DPd)
     - [Pipes in Linux System and Programming Unnamed Pipes](https://youtu.be/KDpZkTsN8Uk?si=LK2gAA-y_u7wnmWF)
+
+*Egon Teiniker, 2025-2026, GPL v3.0*  

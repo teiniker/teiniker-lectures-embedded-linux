@@ -11,3 +11,5 @@
     * [Time](https://youtu.be/WSuHODs9i9M?si=ZvsF-JzD8lbR44A2)
     * [Time Zones and Locales](https://youtu.be/O7aHFX92d1c?si=deJh7tnJq0eC4I44)
     * [Process Time](https://youtu.be/Atnmm6zs01E?si=g0Ogwtnbkg6-xR8G)
+
+*Egon Teiniker, 2025-2026, GPL v3.0*  

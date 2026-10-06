@@ -15,3 +15,4 @@
     - [Programming TimeOut in Linux System](https://youtu.be/AGkP29i1U2U?si=ry-zsiQ5zpr41PsH)
     - [Programming Linux Scheduler and Periodic Actions](https://youtu.be/hZo7LiAt_mQ?si=3pL11_dVc6F9wTLK)
     
+*Egon Teiniker, 2025-2026, GPL v3.0*  

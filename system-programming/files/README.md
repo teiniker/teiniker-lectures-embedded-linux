@@ -80,3 +80,5 @@ embedded system.
     - [Demo File Copy 1](https://youtu.be/KnYB1dRJAI0?si=ENWI-UGzZxQHBc6N)
     - [Random Access](https://youtu.be/zBxuyRtUEI4?si=I4HHOvCx_6-LMbXL)
     - [Buffered and Formatted IO](https://youtu.be/3_CRpnuO5DA?si=dvNKJONpwRlzVdtO)
+
+*Egon Teiniker, 2025-2026, GPL v3.0*  
