@@ -21,7 +21,7 @@ $ passwd
 
 ## SSH Connection from the **Linux VM**
 
-Generate an SSH Key, open a terminal and create a key:
+Generate an SSH Key. In the Linux VM, open a terminal and create a key:
 
 ```bash 
 $ ssh-keygen -t ed25519
