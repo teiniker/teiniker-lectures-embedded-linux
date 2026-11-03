@@ -54,4 +54,4 @@ With Docker now available on the Raspberry Pi 5, we can use the
 
 * [Install Docker Engine on Debian](https://docs.docker.com/engine/install/debian/)
 
-*Egon Teiniker, 2025, GPL v3.0*
+*Egon Teiniker, 2025-2026, GPL v3.0*

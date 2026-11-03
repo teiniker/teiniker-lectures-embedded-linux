@@ -1,18 +1,4 @@
-# Message Queuing Telemetry Transport
-
-Message Queuing Telemetry Transport (MQTT) is a lightweight, publish-subscribe 
-messaging protocol designed for efficient communication between devices, especially 
-in IoT environments. 
-
-It uses a broker to facilitate message distribution, enabling clients to subscribe 
-or publish messages to specific "topics." 
-
-MQTT is optimized for low bandwidth, high latency, and unreliable networks, 
-making it ideal for remote monitoring, sensor data collection, and device-to-device
-communication.
-
-
-## Setup Mosquitto Server 
+# Setup Mosquitto Server 
 
 ```
 $ sudo apt update
@@ -45,7 +31,7 @@ we have to make sure that the firewall that is running on your computer has the
 appropriate configuration for this port number.
 
 
-### Enable Remote Access (No Authentication)
+## Enable Remote Access (No Authentication)
 
 ```bash
 $ sudo vim /etc/mosquitto/mosquitto.conf
