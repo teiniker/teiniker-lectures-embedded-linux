@@ -100,4 +100,4 @@ the `DigitalInputDevice` class.
 * [gpiozero: Button](https://gpiozero.readthedocs.io/en/stable/api_input.html#button)
 * [Raspberry Pi: Read Digital Inputs with Python](https://randomnerdtutorials.com/raspberry-pi-digital-inputs-python/)
 
-_Egon Teiniker, 2026, GPL v3.0_
+_Egon Teiniker, 2025-2026, GPL v3.0_

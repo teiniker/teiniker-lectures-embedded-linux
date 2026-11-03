@@ -143,6 +143,6 @@ The read command returns the byte stored at address 0x0123.
 
 * [Raspberry Pi Tutorial Series: I2C](https://www.waveshare.com/wiki/Raspberry_Pi_Tutorial_Series:_I2C)
 
-
+*Egon Teiniker, 2025-2026, GPL v3.0*
 
 

@@ -81,8 +81,8 @@ The UART pins can be used for Serial communication. The Raspberry Pi Serial
 * **RX**: GPIO 15
 
 
-
-
 ## References
 
 * [Raspberry Pi Pinout Guide: How to use the Raspberry Pi GPIOs?](https://randomnerdtutorials.com/raspberry-pi-pinout-gpios/)
+
+*Egon Teiniker, 2025-2026, GPL v3.0*

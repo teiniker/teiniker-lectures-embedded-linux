@@ -39,3 +39,5 @@ $ cd build/
 $ make
 $ ./blink
 ```
+
+*Egon Teiniker, 2025-2026, GPL v3.0*

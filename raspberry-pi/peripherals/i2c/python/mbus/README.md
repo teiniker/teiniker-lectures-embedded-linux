@@ -102,3 +102,5 @@ I2C hardware -> physical bus.
 * [Using the I2C Interface](https://raspberry-projects.com/pi/programming-in-python/i2c-programming-in-python/using-the-i2c-interface-2)
 
 * [Raspberry Pi: Python Libraries for I2C, SPI, UART](https://medium.com/geekculture/raspberry-pi-python-libraries-for-i2c-spi-uart-3df092aeda42)
+
+*Egon Teiniker, 2025-2026, GPL v3.0*

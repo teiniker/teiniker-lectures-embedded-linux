@@ -68,4 +68,4 @@ $ sudo apt install ./wiringpi_3.16_arm64.deb
 
 * [WiringPi functions documentation](https://github.com/WiringPi/WiringPi/blob/master/documentation/english/functions.md)
 
-_Egon Teiniker, 2025, GPL v3.0_
+_Egon Teiniker, 2025-2026, GPL v3.0_

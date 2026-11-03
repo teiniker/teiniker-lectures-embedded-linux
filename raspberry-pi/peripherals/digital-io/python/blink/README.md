@@ -49,4 +49,4 @@ Press `Ctrl-C` to stop the program.
 * [gpiozero: LED](https://gpiozero.readthedocs.io/en/stable/api_output.html#led)
 * [Raspberry Pi: Read Digital Inputs with Python](https://randomnerdtutorials.com/raspberry-pi-digital-inputs-python/)
 
-_Egon Teiniker, 2026, GPL v3.0_
+_Egon Teiniker, 2025-2026, GPL v3.0_

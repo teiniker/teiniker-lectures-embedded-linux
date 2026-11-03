@@ -45,4 +45,4 @@ $ gpiomon gpiochip0 27
 * [libgpiod: Command-line tools](https://libgpiod.readthedocs.io/en/latest/gpio_tools.html)
 
 
-_Egon Teiniker, 2025, GPL v3.0_
+_Egon Teiniker, 2025-2026, GPL v3.0_

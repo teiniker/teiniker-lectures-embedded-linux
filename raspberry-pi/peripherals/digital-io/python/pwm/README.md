@@ -95,4 +95,4 @@ fade/blink/pulse helpers.
 * [gpiozero: PWMOutputDevice](https://gpiozero.readthedocs.io/en/stable/api_output.html#pwmoutputdevice)
 * [Raspberry Pi: PWM Outputs with Python](https://randomnerdtutorials.com/raspberry-pi-pwm-python/)
 
-_Egon Teiniker, 2026, GPL v3.0_
+_Egon Teiniker, 2025-2026, GPL v3.0_

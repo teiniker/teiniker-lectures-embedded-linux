@@ -25,3 +25,5 @@ This is a C library for the Raspberry which allows control of the General Purpos
 * [GitHub: pigpio](https://github.com/joan2937/pigpio)
 
 * Dogan Ibrahim. **C Programming on Raspberry Pi**. Elektor 2021
+
+*Egon Teiniker, 2025-2026, GPL v3.0*
