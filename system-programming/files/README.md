@@ -31,6 +31,7 @@ abstraction: they are just pre-opened files, which is why the same
 `read()`/`write()` calls used for disk files also work for the terminal
 or for redirected pipes.
 
+
 ## Hardware Access in Embedded Linux
 
 On embedded Linux systems, the "everything is a file" abstraction is what

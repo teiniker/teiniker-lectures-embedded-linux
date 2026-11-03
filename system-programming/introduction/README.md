@@ -1,13 +1,15 @@
 # Linux System Programming 
 
-Linux System Programming refers to writing software that interacts directly 
-with the Linux operating system kernel and core system libraries, rather 
+Linux System Programming refers to writing **software that interacts directly 
+with the Linux operating system kernel** and core system libraries, rather 
 than sitting high up in an application-level runtime.
 
 ![](figures/KernelSpace-UserSpace.png)
 
+_Figure: Kernel space and user space (Chris Brown)_
+
 It centers on using the fundamental APIs, primarily standard POSIX and 
-Linux-specific system calls via the C standard library (glibc), to 
+Linux-specific **system calls via the C standard library (glibc)**, to 
 manage low-level resources. 
 
 Developers write code to control process lifecycles, memory allocation, 
@@ -22,14 +24,14 @@ In Linux system architecture, memory and execution privileges are divided into
 two primary zones to ensure stability and security:
 
 * **Kernel Space:** The privileged execution environment where 
-**The Linux Kernel** runs with unrestricted access to underlying hardware 
-(CPU, Memory, Disk, Network). It manages core resources, hardware interrupts, 
-process scheduling, and device drivers.
+    **The Linux Kernel** runs with unrestricted access to underlying hardware 
+    (CPU, Memory, Disk, Network). It manages core resources, hardware interrupts, 
+    process scheduling, and device drivers.
 
 * **User Space:** The restricted, unprivileged execution environment where 
-**Application Programs** and runtime libraries execute. User applications 
-are isolated from one another and cannot interact with physical hardware directly, 
-preventing errant code from crashing the entire operating system.
+    **Application Programs** and runtime libraries execute. User applications 
+    are isolated from one another and cannot interact with physical hardware directly, 
+    preventing errant code from crashing the entire operating system.
 
 
 
@@ -47,7 +49,7 @@ preventing errant code from crashing the entire operating system.
         user-space memory buffers, calling low-level system services only 
         when the buffer needs to be flushed.
 
-* **System Calls (Syscalls, e.g., `write()`):** The programmatic gateway between 
+* **System Calls (`write()`):** The programmatic gateway between 
     User Space and Kernel Space. Whenever a user program requires hardware 
     access (such as writing bytes to a file descriptor or terminal), it issues 
     a system call. This triggers a context switch from unprivileged mode to 

@@ -45,6 +45,7 @@ has to go through the kernel.
   management (`brk()`, `mmap()`), signal handling (`sigaction()`,
   `kill()`), and inter-process communication (`pipe()`, `socket()`).
 
+
 ## Analyzing System Calls with `strace`
 
 [`strace`](https://strace.io/) is a diagnostic tool that intercepts and
@@ -53,7 +54,7 @@ facility), together with its arguments and return value. It is one of the
 most useful tools for understanding what a program is *actually* doing at
 the kernel boundary, independent of what its source code claims to do.
 
-* **Basic usage** - run a program under `strace` and print every system
+* **Basic usage**: Run a program under `strace` and print every system
   call to `stderr`:
 
   ```bash
@@ -61,15 +62,15 @@ the kernel boundary, independent of what its source code claims to do.
   ```
 
 * **Useful options**:
-    - `-o file` - write the trace to `file` instead of `stderr`.
-    - `-e trace=openat,read,write,close` - only trace the listed system
+    - `-o file`: write the trace to `file` instead of `stderr`.
+    - `-e trace=openat,read,write,close`: only trace the listed system
       calls; indispensable for filtering out the (often long) sequence of
       calls made by the dynamic linker before `main()` even runs.
-    - `-f` - also trace child processes created with `fork()`/`clone()`.
-    - `-T` - show the time spent inside each system call.
-    - `-c` - instead of a full trace, print a summary table with the
+    - `-f`: also trace child processes created with `fork()`/`clone()`.
+    - `-T`: show the time spent inside each system call.
+    - `-c`: instead of a full trace, print a summary table with the
       number of calls, errors, and total time per system call.
-    - `-p PID` - attach to and trace an already running process.
+    - `-p PID`: attach to and trace an already running process.
 
 * **Reading the output**: Each line has the form
   `syscall(argument, ...) = return_value`, for example:
