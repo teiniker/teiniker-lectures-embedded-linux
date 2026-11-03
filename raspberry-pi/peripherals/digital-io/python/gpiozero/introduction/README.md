@@ -1,7 +1,4 @@
-# Python Libraries for GPIO Programming
-
-
-## gpiozero
+# gpiozero
 
 `gpiozero` is an **object-oriented Python library** designed to abstract 
 hardware components into logical software devices (like LED, Button, 
@@ -12,14 +9,14 @@ loops, it encapsulates hardware logic into declarative classes with
 built-in event handling, background polling threads, and mathematical 
 transformations.
 
-### Setup
+## Setup
 
 ```bash
 $ sudo apt update
 $ sudo apt install python3-gpiozero python3-lgpio
 ```
 
-### Key Architectural Concepts
+## Key Architectural Concepts
 
 * **Device-Centric Abstraction**: Rather than addressing pins by raw 
     numbers and directions, you instantiate physical devices 
@@ -35,14 +32,13 @@ $ sudo apt install python3-gpiozero python3-lgpio
     (e.g., `led.source = button`).
 
 
-### The Propagation Path to the Kernel
+## The Propagation Path to the Kernel
 
 On the Raspberry Pi 5, GPIOs are physically wired to the **RP1 southbridge chip** 
 over a PCIe bus. Direct memory mapping is no longer practical (used in earlier 
 Raspberry Pi models (Pi 1–4)), so all operations must route through the official 
 Linux kernel character device subsystem.
 
----
 
 _Example:_ Run `led = LED(17); led.on()` on a Raspberry Pi 5:
 
@@ -79,18 +75,11 @@ _Example:_ Run `led = LED(17); led.on()` on a Raspberry Pi 5:
         The kernel services the IRQ, wakes the waiting thread from `poll()`, 
         and `gpiozero` triggers your Python callback function.
 
----
 
+## References
 
-## gpiod
+* [YouTube (DroneBot Workshop): Raspberry Pi GPIO - Getting Started with gpiozero](https://youtu.be/iL_oZGHLHvU?si=7jsirIP-KS7Q3Bf0)
 
-If you prefer direct, low-level control over the Linux GPIO character 
-device interface without device abstractions.
-
-### Setup
-
-```bash
-sudo apt install python3-libgpiod gpiod
-```
+* [gpiozero Documentation](https://gpiozero.readthedocs.io/en/stable/)
 
 *Egon Teiniker, 2025-2026, GPL v3.0*
