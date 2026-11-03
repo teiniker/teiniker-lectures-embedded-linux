@@ -69,3 +69,5 @@ $ mosquitto_pub -h 192.168.0.73 -t sensors/distance -m  "10cm" -d
 ## References
 
 * [Install Mosquitto MQTT Broker on Raspberry Pi](https://randomnerdtutorials.com/how-to-install-mosquitto-broker-on-raspberry-pi/)
+
+*Egon Teiniker, 2025-2026, GPL v3.0* 
