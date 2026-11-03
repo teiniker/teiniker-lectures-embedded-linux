@@ -1,7 +1,4 @@
-# Python Libraries for I2C Programming
-
-
-## mbus2 
+# mbus2 
 
 `smbus2` is a pure-Python 3 implementation of the SMBus/I2C protocol. It is a
 drop-in replacement for the older `python-smbus` C extension, offering the
@@ -10,12 +7,12 @@ message transactions). It does not talk to the hardware directly - it drives
 the Linux `i2c-dev` character device interface, so any bus exposed as
 `/dev/i2c-N` can be used.
 
-### Setup
+## Setup
 
 1. Enable the I2C interface on the Raspberry Pi:
 
    ```
-   sudo raspi-config   # Interface Options -> I2C -> Enable
+   $ sudo raspi-config   # Interface Options -> I2C -> Enable
    ```
 
    or add `dtparam=i2c_arm=on` to `/boot/config.txt` and reboot.
@@ -24,24 +21,24 @@ the Linux `i2c-dev` character device interface, so any bus exposed as
    exist):
 
    ```
-   lsmod | grep i2c_dev
-   ls /dev/i2c-*
+   $ lsmod | grep i2c_dev
+   $ ls /dev/i2c-*
    ```
 
 3. Add the current user to the `i2c` group so `/dev/i2c-1` can be accessed
    without root:
 
    ```
-   sudo usermod -aG i2c $USER
+   $ sudo usermod -aG i2c $USER
    ```
 
 4. Install the library:
 
    ```
-   pip install smbus2
+   $ pip install smbus2
    ```
 
-### Key Architectural Concepts
+## Key Architectural Concepts
 
 * **`SMBus`**: represents an open connection to one I2C bus
   (`/dev/i2c-<bus>`). It can be used directly (`bus = SMBus(1)`) or as a
