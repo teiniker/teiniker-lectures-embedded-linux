@@ -5,7 +5,8 @@ of the GPIO pins by directly accessing the hardware registers using DMA.
 
 WiringPi supports all Raspberry Pi Boards including Pi 5
 
-WiringPi is widely used in numerous projects, making it a reliable choice for your Raspberry Pi GPIO needs.
+WiringPi is widely used in numerous projects, making it a reliable choice for our 
+Raspberry Pi GPIO needs.
 
 
 ## Interaction wit Kernel  
@@ -15,13 +16,15 @@ of memory-mapped I/O (MMIO) for fast access to GPIO registers and some kernel in
 (e.g., `/dev/mem`, `/dev/gpiomem`, `/sys/class/gpio`, `/dev/spidev*`, `/dev/i2c-*`) 
 depending on what features we use.
 
-* User-space library, not a kernel driver
+* User-space library, not a kernel driver:
     - WiringPi does not run in the kernel and does not require custom kernel modules.
-    - Our program simply links against **libwiringPi.so** and makes syscalls like any user program.
+    - Our program simply links against **libwiringPi.so** and makes syscalls like any 
+        user program.
     - All hardware control happens from user space using Linux-exposed interfaces.
 
-* GPIO register access through /dev/gpiomem
-    - WiringPi uses `/dev/gpiomem` to get memory-mapped access to the SoC’s GPIO peripheral registers.
+* GPIO register access through /dev/gpiomem:
+    - WiringPi uses `/dev/gpiomem` to get memory-mapped access to the SoC’s GPIO peripheral 
+        registers.
     - `/dev/gpiomem` allows GPIO access without full root privileges.
     - The library `mmap()`s this device so it can read/write registers directly in RAM space.
 
@@ -35,11 +38,6 @@ depending on what features we use.
         - It uses the kernel’s epoll / poll mechanism on a GPIO sysfs or character device.
         - The kernel detects the edge; WiringPi gets notified in user space.
         - No busy-looping required; very lightweight.
-
-
-## Operations 
-
-* Initialization: At the beginning, the WiringPi Library must be initialized. 
 
 
 
