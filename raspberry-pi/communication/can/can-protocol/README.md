@@ -351,7 +351,7 @@ $ sudo ip link set can0 up type can bitrate 500000 sample-point 0.875
 
 * [YouTube (Hardwire Electronics): CAN Bus: A Beginners Guide Part 1](https://youtu.be/YBrU_eZM110?si=h0w9qiuRXwpP_lGI)
 
-* [YouTube (Hardwire Electronics):](CAN Bus: A Beginners Guide Part 2)(https://youtu.be/z5CVljiLhvc?si=bjL7kD0CVmatNLWG)
+* [YouTube (Hardwire Electronics): CAN Bus: A Beginners Guide Part 2](https://youtu.be/z5CVljiLhvc?si=bjL7kD0CVmatNLWG)
 
 * [YouTube (Inside Embedded | Polezero): Everything About CAN Bus | CAN Protocol Explained: Arbitration, Frames, CAN FD](https://youtu.be/aAR7xyTaXIo?si=ca5--SnVs3RSvFms)
 
