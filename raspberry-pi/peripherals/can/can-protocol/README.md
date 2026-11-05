@@ -7,7 +7,7 @@ sensors, actuators, ...) share a **single two-wire bus**. Today CAN is
 standardized in **ISO 11898** and is used in cars, trucks, industrial
 automation, medical devices, and many embedded systems.
 
-Key properties of CAN:
+Properties of the CAN bus:
 
 * **Multi-master**: Every node may start a transmission when the bus is idle.
   There is no central bus master.
@@ -39,17 +39,9 @@ Protocol versions:
 
 The Bosch specification describes CAN in the following layers:
 
-```
-+----------------------------+
-|     Application Layer      |   messages, identifiers, payload meaning
-+----------------------------+
-|      Transfer Layer        |   framing, arbitration, error detection, ACK
-+----------------------------+
-|      Physical Layer        |   bit timing, signal levels, cable, termination
-+----------------------------+
-```
+![](figures/can_layers.png)
 
-Note that the CAN standard only defines the lower layers. The meaning of IDs
+Note that the CAN standard only defines the physical and transfer layers. The meaning of IDs
 and payload bytes is defined by **higher-layer protocols** such as
 **CANopen**, **J1939** (trucks), **ISO-TP / UDS** (vehicle diagnostics), or
 simply by a project-specific message catalog (often stored as a **DBC file**).
@@ -74,13 +66,7 @@ From the application's point of view, a CAN message consists of:
 
 ### Standard Data Frame (CAN 2.0A)
 
-```
- 1    11          1   1   1    4        0..64        15       1   1   1    7      3
-+---+------------+---+---+---+------+-------------+---------+---+---+---+-------+-----+
-|SOF| Identifier |RTR|IDE|r0 | DLC  |    Data     |   CRC   |CD |ACK|AD |  EOF  | IFS |
-+---+------------+---+---+---+------+-------------+---------+---+---+---+-------+-----+
-    |<- Arbitration->|<-Control--->|<-- Data --->|<-- CRC -->|<- ACK ->|
-```
+![](figures/can_frame_standard.png)
 
 | Field                    | Bits   | Description                                                        |
 |--------------------------|--------|--------------------------------------------------------------------|
@@ -98,20 +84,18 @@ From the application's point of view, a CAN message consists of:
 | **EOF** (End of Frame)   | 7      | 7 recessive bits.                                                  |
 | **IFS** (Interframe Space) | 3    | At least 3 recessive bits before the next frame may start.         |
 
+
 ### Extended Data Frame (CAN 2.0B)
 
 In an extended frame, the identifier is split into an **11-bit base ID** and
 an **18-bit ID extension**:
 
-```
-+---+-------------+---+---+-----------------+---+---+---+-----+------+-----+...
-|SOF| Base ID(11) |SRR|IDE| ID Extension(18)|RTR|r1 |r0 | DLC | Data | CRC |...
-+---+-------------+---+---+-----------------+---+---+---+-----+------+-----+...
-```
+![](figures/can_frame_extended.png)
 
 The **SRR** (Substitute Remote Request) and **IDE** bits are recessive. Since
 the IDE bit of a standard frame is dominant, a **standard frame always wins
 arbitration** against an extended frame with the same base ID.
+
 
 ### Bit Stuffing
 
@@ -121,12 +105,7 @@ the CRC). Receivers remove these stuff bits automatically. Six equal bits in
 a row therefore indicate an error (this is exactly how error frames work:
 they consist of 6 dominant bits).
 
-```
-Original:  0 0 0 0 0 0 1 1 1 1 1 1 1
-Stuffed:   0 0 0 0 0 1 0 1 1 1 1 0 1 1
-                     ^           ^
-                     stuff bits
-```
+![](figures/can_bit_stuffing.png)
 
 ### CAN Frames in Linux (SocketCAN)
 
@@ -202,14 +181,7 @@ Priority):
 
 Example: Three nodes start transmitting at the same time:
 
-```
-Bit:            SOF 10  9  8  7  6  5  4  3  2  1  0
-Node A (0x65A):  0   1  1  0  0  1  0  1  1  0  1  0
-Node B (0x64F):  0   1  1  0  0  1  0  0  1  1  1  1
-Node C (0x65F):  0   1  1  0  0  1  0  1  1  1  1  1
--------------------------------------------------------
-Bus:             0   1  1  0  0  1  0  0  1  1  1  1
-```
+![](figures/can_arbitration.png)
 
 * Bits 10 to 5 are identical for all nodes, so nobody notices a collision.
 * At **bit 4**, nodes A and C send recessive (1), node B sends dominant (0).
@@ -256,15 +228,7 @@ To prevent a defective node from blocking the bus, each node maintains a
 **Transmit Error Counter (TEC)** and a **Receive Error Counter (REC)**.
 Errors increase the counters, successful transmissions decrease them:
 
-```
-               TEC or REC > 127               TEC > 255
- +--------------+  ---------->  +---------------+  ------->  +---------+
- | Error Active |               | Error Passive |            | Bus Off |
- +--------------+  <----------  +---------------+            +---------+
-               TEC and REC < 128                                   |
-        ^                                                           |
-        +-------- 128 x 11 recessive bits (and restart) ------------+
-```
+![](figures/can_error_states.png)
 
 * **Error active**: Normal state; the node sends active error frames
   (6 dominant bits).
@@ -296,12 +260,8 @@ A CAN node consists of:
   controller into the differential bus signals, e.g. **SN65HVD230**
   (3.3 V) or **MCP2551 / TJA1050** (5 V).
 
-```
- +--------------+   SPI   +----------------+  TX/RX  +-------------+
- | Raspberry Pi | <-----> | CAN controller | <-----> | Transceiver | ==== CAN_H
- |              |   INT   |   (MCP2515)    |         | (SN65HVD230)| ==== CAN_L
- +--------------+ <------ +----------------+         +-------------+
-```
+![](figures/can_controller.png)
+
 
 ### Wiring and Topology
 
@@ -310,18 +270,8 @@ usually as a **twisted pair** (often shielded), plus a common **GND**
 reference. All nodes are connected in a **line (bus) topology** with only
 short stubs to each node.
 
-```
- 120 Ω                                                        120 Ω
-+-/\/\-+                                                     +-/\/\-+
-|      |                                                     |      |
-CAN_H ---+-------------+-------------+-------------+---------+ CAN_H
-         |             |             |             |
-CAN_L ---+-------------+-------------+-------------+---------+ CAN_L
-         |             |             |             |
-      +------+      +------+      +------+      +------+
-      |Node 1|      |Node 2|      |Node 3|      |Node 4|
-      +------+      +------+      +------+      +------+
-```
+![](figures/can_physical_layer.png)
+
 
 ### Signal Levels (High-Speed CAN, ISO 11898-2)
 
@@ -334,17 +284,13 @@ and is cancelled out by the receiver.
 | **Recessive** (1, idle)| ~2.5 V   | ~2.5 V   | ~0 V  (< 0.5 V)        |
 | **Dominant** (0)       | ~3.5 V   | ~1.5 V   | ~2 V  (> 0.9 V)        |
 
-```
-        recessive   dominant   recessive   dominant   recessive
- 3.5 V             +---------+           +---------+                CAN_H
- 2.5 V ------------+         +-----------+         +------------    CAN_H / CAN_L
- 1.5 V             +---------+           +---------+                CAN_L
-```
+![](figures/can_signals.png)
 
 In the recessive state, the transceivers do not drive the bus; the
 termination resistors pull both lines to the same level. In the dominant
 state, a transceiver actively drives CAN_H up and CAN_L down. This is the
 reason why a dominant bit always overwrites a recessive bit.
+
 
 ### Termination Resistors
 
@@ -368,6 +314,7 @@ between CAN_H and CAN_L:
 | ~40 Ω or less  | Too many termination resistors                |
 | open / very high | No termination                              |
 
+
 ### Bit Rate and Bus Length
 
 All nodes on a bus must use the **same bit rate**. Since every node must see
@@ -383,22 +330,14 @@ delay of approx. 5 ns/m):
 | 125 kbit/s   | 500 m                     |
 | 50 kbit/s    | 1000 m                    |
 
+
 ### Bit Timing
 
 CAN has no separate clock line. Each bit time is divided into **time
 quanta (tq)** and the receivers resynchronize on recessive-to-dominant
 edges:
 
-```
-|<-------------------------- 1 bit time ------------------------->|
-+---------+-----------------+------------------+-------------------+
-|  Sync   |  Propagation    |  Phase Segment 1 |  Phase Segment 2  |
-|  1 tq   |    Segment      |                  |                   |
-+---------+-----------------+------------------+-------------------+
-                                               ^
-                                         Sample point
-                                       (typically 75 - 87.5 %)
-```
+![](figures/can_timing.png)
 
 In Linux, the bit rate (and optionally the sample point) is set when the
 interface is brought up; the driver calculates the segment lengths:
