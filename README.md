@@ -31,10 +31,10 @@ The material is organized into two parts:
         - [Hardware Inspection](raspberry-pi/peripherals/hardware-inspection/README.md)
         - [GPIO Port](raspberry-pi/peripherals/gpio-port/)
         - [Digital IO](raspberry-pi/peripherals/digital-io/)
-        - [I2C Bus](raspberry-pi/peripherals/i2c/)
-        - [CAN Bus](raspberry-pi/peripherals/can/)
     
     - Communication
+        - [I2C Bus](raspberry-pi/communication/i2c/)
+        - [CAN Bus](raspberry-pi/communication/can/)
         - [MQTT](raspberry-pi/communication/mqtt/)
 
 *Egon Teiniker, 2025-2026, GPL v3.0* 
