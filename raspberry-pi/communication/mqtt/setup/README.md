@@ -42,12 +42,12 @@ allow_anonymous true
 
 Subscribe to a remote MQTT broker
 ```bash
-$ mosquitto_sub  -h 192.168.0.73 -t sensors/distance -d
+$ mosquitto_sub  -h 10.225.32.66 -t sensors/distance -d
 ```
 
 Publish to a remote MQTT broker
 ```bash
-$ mosquitto_pub -h 192.168.0.73 -t sensors/distance -m  "10cm" -d
+$ mosquitto_pub -h 10.225.32.66 -t sensors/distance -m  "10cm" -d
 ```
 
 
