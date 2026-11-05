@@ -5,11 +5,6 @@ I2C_BUS = 1
 # Default address with all A0-A2 tied low/open is usually 0x20 (or 0x38 for PCF8574A)
 PCF_ADDR = 0x20
 
-
-def read_inputs(bus, addr):
-    """Read the current logic state of P0-P7."""
-    return bus.read_byte(addr)
-
 def main():
     with SMBus(I2C_BUS) as bus:
         print(f"Connected to PCF8574 at address {hex(PCF_ADDR)}")
@@ -19,7 +14,7 @@ def main():
         bus.write_byte(PCF_ADDR, 0xFF)
 
         while True:
-            data = read_inputs(bus, PCF_ADDR)
+            data = bus.read_byte(PCF_ADDR) 
             print(f"Raw Byte: {bin(data):>010s}", end="\r")
             
             p7_state = (data >> 7) & 1

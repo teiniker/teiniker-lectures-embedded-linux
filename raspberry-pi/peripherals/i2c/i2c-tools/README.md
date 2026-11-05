@@ -94,7 +94,7 @@ $ i2cset -y 1 0x20 0xF0
 * `-y`: Disables interactive mode.
 * `1`: Specifies I2C bus 1 (common on recent Raspberry Pi models).
 * `0x20`: The I2C address of the PCF8574 device.
-* `0xFF`: The byte to write (in this case, setting all 8 I/O pins to 
+* `0xF0`: The byte to write (in this case, setting the upper 4 I/O pins to 
 	a high state).
 
 
