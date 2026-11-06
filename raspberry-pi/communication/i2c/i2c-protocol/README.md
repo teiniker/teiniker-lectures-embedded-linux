@@ -34,9 +34,6 @@ Properties of the I2C bus:
   **ACK** bit, so the transmitter knows whether the byte (and the target)
   was there.
 
-* **Multi-controller**: Several controllers may share a bus. Collisions are
-  resolved by **non-destructive bitwise arbitration** (like CAN).
-
 * **Open-drain outputs** with **pull-up resistors**: A device can only pull a
   line low or release it. This makes arbitration, clock stretching and
   ACK possible without electrical conflicts.
