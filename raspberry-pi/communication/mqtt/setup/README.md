@@ -40,6 +40,13 @@ listener 1883
 allow_anonymous true
 ```
 
+Restart the MQTT broker:
+
+```bash
+$ sudo systemctl stop mosquitto
+$ sudo systemctl start mosquitto
+```
+
 Subscribe to a remote MQTT broker
 ```bash
 $ mosquitto_sub  -h 10.225.32.66 -t sensors/distance -d
