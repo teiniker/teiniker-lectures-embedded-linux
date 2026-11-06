@@ -100,7 +100,7 @@ $ i2cset -y 1 0x20 0xF0
 
 _Example:_ Read a byte from the PCF8574 port extension IC.
 ```bash
-$ i2cset -y 1 0x21 
+$ i2cget -y 1 0x21 
 ```	
 * `-y`: Disables interactive mode.
 * `1`: Specifies I2C bus 1 (common on recent Raspberry Pi models).
