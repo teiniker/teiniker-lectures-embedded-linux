@@ -51,7 +51,7 @@ Speed modes:
 | High-speed mode (Hs)       | up to 3.4 Mbit/s | Special switching sequence, rarely used      |
 | Ultra Fast-mode (UFm)      | up to 5 Mbit/s   | Write-only, push-pull, no ACK (e.g. LED drivers) |
 
-As with CAN, the I2C protocol can be described in layers:
+The I2C protocol can be described in layers:
 
 ![](figures/i2c_layers.png)
 
