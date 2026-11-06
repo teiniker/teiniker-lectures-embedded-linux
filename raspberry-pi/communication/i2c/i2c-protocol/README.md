@@ -419,6 +419,8 @@ dtparam=i2c_arm_baudrate=400000
 
 ## References
 
+* [YouTube (Rohde & Schwarz): Understanding I2C](https://youtu.be/CAvawEcxoPU?si=h-JJLRvsdmCv6wmC)
+
 * NXP Semiconductors: [UM10204 I2C-bus specification and user manual](https://www.nxp.com/docs/en/user-guide/UM10204.pdf), Rev. 7.0, 2021
 
 * Texas Instruments: [Understanding the I2C Bus (SLVA704)](https://www.ti.com/lit/an/slva704/slva704.pdf)
