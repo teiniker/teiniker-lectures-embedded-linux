@@ -33,4 +33,4 @@ for msg in bus:
 * [CAN Bus With Linux And Python](https://www.faschingbauer.me/trainings/material/soup/linux/hardware/can/group.html)
 
 
-*Egon Teiniker, 2024-2025, GPL v3.0*
+*Egon Teiniker, 2024-2026, GPL v3.0*
