@@ -37,4 +37,10 @@ The material is organized into two parts:
         - [CAN Bus](raspberry-pi/communication/can/)
         - [MQTT](raspberry-pi/communication/mqtt/)
 
+    - Containers 
+        - Docker
+            - [setup](raspberry-pi/containers/docker/setup/README.md)
+            - Demo: [docker-cxx](raspberry-pi/containers/docker/docker-cxx/)
+            - Demo: [docker-python](raspberry-pi/containers/docker/docker-python/)
+
 *Egon Teiniker, 2025-2026, GPL v3.0* 
