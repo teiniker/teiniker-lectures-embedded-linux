@@ -16,9 +16,7 @@ industrial automation, and medical devices.
 
 * [CAN Utils](../can-utils/README.md)
 
-* [SocketCAN in Python Applications](../python/README.md)
-
-
+* [SocketCAN in Python](../python/)
 
 
 *Egon Teiniker, 2024-2025, GPL v3.0*
