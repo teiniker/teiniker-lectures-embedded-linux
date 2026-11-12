@@ -30,9 +30,6 @@ Main PID: 100174 (dockerd)
 Finally, grant a **non-root user access** to the Docker Engine:
 
 ```bash
-# Create the docker group (should already exist)
-$ sudo groupadd docker  
-
 # Add our user to the docker group
 $ sudo usermod -aG docker $USER    
 
