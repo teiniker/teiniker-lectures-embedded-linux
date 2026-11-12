@@ -12,6 +12,8 @@ CAN is known for its **reliability**, **real-time performance**, and
 **fault tolerance**, making it ideal for applications like vehicle electronics, 
 industrial automation, and medical devices.
 
+* [CAN Protocol](../can-protocol/)
+
 * [Setup SocketCAN](../setup/README.md)
 
 * [CAN Utils](../can-utils/README.md)
@@ -19,4 +21,4 @@ industrial automation, and medical devices.
 * [SocketCAN in Python](../python/)
 
 
-*Egon Teiniker, 2024-2025, GPL v3.0*
+*Egon Teiniker, 2024-2026, GPL v3.0*
