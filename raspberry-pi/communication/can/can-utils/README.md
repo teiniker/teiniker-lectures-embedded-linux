@@ -26,7 +26,7 @@ Use Cases:
 
 * **Performance Analysis**: Track message timestamps to analyze communication timing.
 
-Syntax: 
+_Syntax_: 
 
 ```bash
 $ candump [options] <CAN interface(s)>
@@ -43,15 +43,6 @@ $ candump can0
 ```
 This command monitors and displays all CAN messages received on the `can0` 
 interface in real-time.
-
-
-### Monitor Multiple CAN Interfaces
-
-```bash
-$ candump can0 can1
-```
-This command monitors messages on both `can0` and `can1` interfaces simultaneously.
-
 
 ### Output Format
 
@@ -103,6 +94,10 @@ Enable color-coded output for better visibility:
 $ candump -c can0
 ```
 
+### Stop Monitoring
+
+To stop `candump`, press `Ctrl+C`.
+
 
 ### Set Filters
 
@@ -133,11 +128,6 @@ To monitor CAN FD (Flexible Data-rate) traffic:
 $ candump -x can0
 ```
 - The `-x` option displays CAN FD flags and extended information.
-
-
-### Stop Monitoring
-
-To stop `candump`, press `Ctrl+C`.
 
 
 ## cansend
@@ -229,13 +219,127 @@ Extended Arbitration ID: `0x12345678`
 Data: `DE AD BE EF`
 
 
-### Examples
+## cansniffer
 
-_Example:_ Send single CAN messages
+**cansniffer** is a command-line tool from the can-utils package that monitors 
+and displays CAN messages on a specified interface in real-time. 
+
+Unlike candump, which passively dumps all CAN traffic, cansniffer provides a more 
+**dynamic and focused view of CAN bus activity by grouping, filtering, and 
+highlighting changes in CAN message data**. 
+
+This makes it particularly useful for debugging and analyzing active CAN networks.
+
+_Syntax_:
 
 ```Bash
-$ cansend can0 123+1122334455667788
+$ cansniffer [options] <CAN interface>
 ```
+
+* `<CAN interface>`: The CAN interface to monitor, such as can0.
+* `[options]`: Additional flags to customize the behavior of cansniffer.
+
+    | **Option**       | **Description**                                                                                         |
+    |-------------------|---------------------------------------------------------------------------------------------------------|
+    | `-c `            | Color changes
+    | `-e`              | Enables monitoring of extended (29-bit) CA IDs                                                        |
+    | `-t <time>`         | Timeout for ID display (x10ms) default: 500                      |
+    | `-h <time>`         | Hold marker on changes (x10ms) default: 100                      |    
+    | `-l <time>`         | Loop time (display) (x10ms) default: 20                      |
+    | `-b`              | Start with binary mode                                      |
+
+Use Cases:
+
+* **Dynamic Data Analysis**: Quickly identify which bytes in CAN 
+    messages are changing.
+
+* **Reverse Engineering**: Monitor and analyze proprietary CAN messages 
+    (e.g., vehicle diagnostics).
+
+* **Debugging**: Spot irregular or unexpected changes in CAN traffic.
+
+* **Testing Devices**: Verify if a specific device is sending/receiving 
+    the expected data on the CAN bus.
+
+
+### Monitor CAN Messages
+
+To start monitoring CAN traffic on can0:
+
+```Bash
+$ cansniffer -t 0 -c can0
+```
+
+This displays all received CAN messages, grouped by their IDs. 
+Each row represents a unique CAN ID, showing the latlest data bytes 
+and highlighting changes in real time.
+
+
+### Output Format
+
+A typical cansniffer output line looks like this:
+
+```Bash
+  can0  123   [8]  DE AD BE EF 00 00 00 01
+```
+
+* `can0`: CAN interface name.
+* `123`: CAN ID (arbitration ID).
+* `[8]`: Data Length Code (DLC).
+* `DE AD BE EF 00 00 00 01`: Data bytes (highlighted if changes occur).
+
+
+### Interactive Mode
+cansniffer allows interactive filtering while running:
+
+* Press `+` to add a CAN ID to the display.
+* Press `-` to remove a CAN ID from the display.
+* Press `q` to quit the tool.
+
+
+### Highlight Changes
+
+Using the `-c` flag, **cansniffer** automatically highlights data bytes that 
+change during runtime:
+
+* Bytes that have changed are highlighted or bolded (depending on the 
+    terminal's capabilities).
+* This helps you quickly identify which parts of the CAN messages are 
+    dynamic.
+
+
+### Ignore Certain Messages
+
+To suppress specific CAN IDs or a range of IDs, use the `-i` option:
+
+```Bash
+$ cansniffer -i 300:3FF can0
+```
+
+This ignores all messages with IDs from `0x300` to `0x3FF`.
+
+
+### Monitor Extended CAN IDs
+
+If your network uses extended **(29-bit) CAN IDs**, enable them with 
+the `-e` flag:
+
+```Bash
+$ cansniffer -e can0
+```
+
+### Stop Monitoring
+
+To exit cansniffer, press `Ctrl+C` or use the interactive quit key `q`.
+
+
+### candump vs. cansniffer
+
+* Use **candump** to first understand the overall traffic on the bus.
+
+* Switch to **cansniffer** for a more focused and interactive analysis 
+    of message contents.
+
 
 
 ## cangen
@@ -280,6 +384,7 @@ Use Cases:
 
 * **Network Validation**: Identify potential issues in CAN bus communication 
     under various scenarios.
+
 
 ### Generate Random Standard CAN Frames
 
@@ -362,127 +467,6 @@ $ cangen can0 -g 0 -e -D 8
 This sends extended frames `-e` with an 8-byte payload `-D 8` as fast as possible `-g 0`.
 
 
-## cansniffer
-
-**cansniffer** is a command-line tool from the can-utils package that monitors 
-and displays CAN messages on a specified interface in real-time. 
-
-Unlike candump, which passively dumps all CAN traffic, cansniffer provides a more 
-**dynamic and focused view of CAN bus activity by grouping, filtering, and 
-highlighting changes in CAN message data**. 
-
-This makes it particularly useful for debugging and analyzing active CAN networks.
-
-Syntax:
-
-```Bash
-$ cansniffer [options] <CAN interface>
-```
-
-* `<CAN interface>`: The CAN interface to monitor, such as can0.
-* `[options]`: Additional flags to customize the behavior of cansniffer.
-
-    | **Option**       | **Description**                                                                                         |
-    |-------------------|---------------------------------------------------------------------------------------------------------|
-    | `-c `            | Color changes
-    | `-e`              | Enables monitoring of extended (29-bit) CA IDs                                                        |
-    | `-t <time>`         | Timeout for ID display (x10ms) default: 500                      |
-    | `-h <time>`         | Hold marker on changes (x10ms) default: 100                      |    
-    | `-l <time>`         | Loop time (display) (x10ms) default: 20                      |
-    | `-b`              | Start with binary mode                                      |
-
-Use Cases:
-
-* **Dynamic Data Analysis**: Quickly identify which bytes in CAN 
-    messages are changing.
-
-* **Reverse Engineering**: Monitor and analyze proprietary CAN messages 
-    (e.g., vehicle diagnostics).
-
-* **Debugging**: Spot irregular or unexpected changes in CAN traffic.
-
-* **Testing Devices**: Verify if a specific device is sending/receiving 
-    the expected data on the CAN bus.
-
-
-### Monitor CAN Messages
-
-To start monitoring CAN traffic on can0:
-
-```Bash
-$ cansniffer -t 0 -c can0
-```
-
-This displays all received CAN messages, grouped by their IDs. 
-Each row represents a unique CAN ID, showing the latest data bytes 
-and highlighting changes in real time.
-
-
-### Output Format
-
-A typical cansniffer output line looks like this:
-
-```Bash
-  can0  123   [8]  DE AD BE EF 00 00 00 01
-```
-
-* `can0`: CAN interface name.
-* `123`: CAN ID (arbitration ID).
-* `[8]`: Data Length Code (DLC).
-* `DE AD BE EF 00 00 00 01`: Data bytes (highlighted if changes occur).
-
-
-### Interactive Mode
-cansniffer allows interactive filtering while running:
-
-* Press `+` to add a CAN ID to the display.
-* Press `-` to remove a CAN ID from the display.
-* Press `q` to quit the tool.
-
-
-### Highlight Changes
-
-Using the `-c` flag, **cansniffer** automatically highlights data bytes that 
-change during runtime:
-
-* Bytes that have changed are highlighted or bolded (depending on the 
-    terminal's capabilities).
-* This helps you quickly identify which parts of the CAN messages are 
-    dynamic.
-
-
-### Ignore Certain Messages
-
-To suppress specific CAN IDs or a range of IDs, use the `-i` option:
-
-```Bash
-$ cansniffer -i 300:3FF can0
-```
-
-This ignores all messages with IDs from `0x300` to `0x3FF`.
-
-
-### Monitor Extended CAN IDs
-
-If your network uses extended **(29-bit) CAN IDs**, enable them with 
-the `-e` flag:
-
-```Bash
-$ cansniffer -e can0
-```
-
-### Stop Monitoring
-
-To exit cansniffer, press `Ctrl+C` or use the interactive quit key `q`.
-
-
-### candump vs. cansniffer
-
-* Use **candump** to first understand the overall traffic on the bus.
-
-* Switch to **cansniffer** for a more focused and interactive analysis 
-    of message contents.
-
 
 ## canplayer
 
@@ -495,7 +479,7 @@ them back onto the specified CAN network.
 This tool is especially useful for testing, simulation, and reproducing 
 specific CAN traffic patterns to debug or analyze a system.
 
-Syntax:
+_Syntax_:
 
 ```Bash
 $ canplayer [options] <logfile>
@@ -630,4 +614,4 @@ This sends the replayed messages to both `can0` and `can1`.
 
 * [Manpages of can-utils in Debian testing](https://manpages.debian.org/testing/can-utils/index.html)
 
-*Egon Teiniker, 2024-2025, GPL v3.0*
+*Egon Teiniker, 2024-2026, GPL v3.0*
