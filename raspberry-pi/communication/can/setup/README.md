@@ -29,6 +29,8 @@ To connect the Raspberry Pi to a CAN bus, we need:
 
     * A CAN transceiver circuit using an MCP2515 + MCP2551 or equivalent chipset
 
+![](figures/rs485-can-hat-with-raspberry-pi.jpg)
+
 
 ## Bring Up the CAN Interface
 
@@ -65,7 +67,7 @@ To make these settings persistent across reboots, add the following lines to
 the **/etc/rc.local** file and set the permissions to execute:
 
 ```Bash
-sudo vi /etc/rc.local 
+$ sudo vi /etc/rc.local 
 
 #!/bin/sh -e
 # 
@@ -91,7 +93,7 @@ messages, respectively.
 
 Ensure our Raspberry Pi has the necessary kernel modules for CAN support.
 
-```
+```bash
 $ sudo apt install can-utils
 ```
 
@@ -119,4 +121,4 @@ such as candump, cansend, and cangen.
 * [YouTube: RS485 CAN BUS HAT MCP2515 Raspberry pi and Arduino](https://youtu.be/xY5S8YGI72g?si=lkc3kZM10NIoWBgU)
 
 
-*Egon Teiniker, 2024-2025, GPL v3.0*
+*Egon Teiniker, 2024-2026, GPL v3.0*
